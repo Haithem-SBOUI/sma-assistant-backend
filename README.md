@@ -2,6 +2,31 @@
 
 A production-ready medical Q&A chatbot specifically designed for Spinal Muscular Atrophy (SMA) disease, built with FastAPI, LangChain, and Google Gemma.
 
+## 📚 Documentation
+
+We provide comprehensive documentation for developers at all levels:
+
+### 🚀 Getting Started
+- **[NEWCOMER_GUIDE.md](./NEWCOMER_GUIDE.md)** - Complete beginner's guide to all technologies used
+- **[ONBOARDING_CHECKLIST.md](./ONBOARDING_CHECKLIST.md)** - Step-by-step checklist for new team members
+- **[TROUBLESHOOTING_GUIDE.md](./TROUBLESHOOTING_GUIDE.md)** - Solutions to common setup and development issues
+
+### 📖 Technical Documentation
+- **[DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md)** - Comprehensive development guide with architecture details
+- **[API_REFERENCE.md](./API_REFERENCE.md)** - Complete API documentation with examples
+- **[BACKEND_GUIDE.md](./BACKEND_GUIDE.md)** - FastAPI, LangChain, and Python-specific guide
+- **[FRONTEND_GUIDE.md](./FRONTEND_GUIDE.md)** - Angular, TypeScript, and PrimeNG guide
+
+### 🎓 Learning Resources
+- **[LEARNING_RESOURCES.md](./LEARNING_RESOURCES.md)** - Curated learning materials and structured learning paths
+
+### 📋 Quick Reference
+New to the project? Start with:
+1. [NEWCOMER_GUIDE.md](./NEWCOMER_GUIDE.md) - Understand what we're building and why
+2. [ONBOARDING_CHECKLIST.md](./ONBOARDING_CHECKLIST.md) - Set up your development environment
+3. [TROUBLESHOOTING_GUIDE.md](./TROUBLESHOOTING_GUIDE.md) - Fix common issues
+4. [DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md) - Dive deep into the architecture
+
 ## Features
 
 - 🏥 **SMA-Specialized**: Focused exclusively on Spinal Muscular Atrophy information
@@ -236,7 +261,20 @@ CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
 4. **Input Validation**: All inputs are validated via Pydantic
 5. **Error Handling**: No sensitive information exposed in error responses
 
-## Troubleshooting
+## Getting Help & Troubleshooting
+
+### 🆘 Need Help?
+
+**New to the project?** Check our comprehensive guides:
+- [TROUBLESHOOTING_GUIDE.md](./TROUBLESHOOTING_GUIDE.md) - Common issues and solutions
+- [NEWCOMER_GUIDE.md](./NEWCOMER_GUIDE.md) - Technology explanations for beginners
+
+**Common Issues:**
+- **Setup Problems**: See [ONBOARDING_CHECKLIST.md](./ONBOARDING_CHECKLIST.md)
+- **Development Issues**: Check [TROUBLESHOOTING_GUIDE.md](./TROUBLESHOOTING_GUIDE.md)
+- **Learning Resources**: Browse [LEARNING_RESOURCES.md](./LEARNING_RESOURCES.md)
+
+## Troubleshooting Quick Reference
 
 ### Common Issues
 
