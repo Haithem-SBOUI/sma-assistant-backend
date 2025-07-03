@@ -142,3 +142,6 @@ safety-report.json
 # Custom
 
 setup.sh
+
+*.md
+/docs
