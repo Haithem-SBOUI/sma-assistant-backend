@@ -1,4 +1,4 @@
-FROM python:3.12-slim-bullseye
+FROM python:3.12.3-slim-bullseye
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
