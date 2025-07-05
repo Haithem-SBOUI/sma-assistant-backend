@@ -99,7 +99,7 @@ def create_fallback_response(error_message: str = "I apologize, but I'm having t
         ChatResponse with fallback content
     """
     return ChatResponse(
-        answer=f"{error_message} Please try rephrasing your question about Spinal Muscular Atrophy (SMA), or contact a healthcare professional for immediate assistance.",
+        answer=f"{error_message} Please try rephrasing your question about Spinal Muscular Atrophy (SMA), or contact a healthcare professional for immediate assistance. / أعتذر، أواجه صعوبة في معالجة طلبك الآن. يرجى إعادة صياغة سؤالك حول ضمور العضلات الشوكي (SMA)، أو الاتصال بأخصائي الرعاية الصحية للحصول على المساعدة الفورية.",
         confidence=0.0
     )
 
@@ -130,7 +130,7 @@ def process_llm_response(raw_response: str, user_message: str) -> ChatResponse:
         if not _is_sma_related_response(chat_response.answer):
             logger.warning("Response doesn't appear to be SMA-related")
             return ChatResponse(
-                answer="I can only provide information about Spinal Muscular Atrophy (SMA). Please ask a question related to SMA, its symptoms, treatments, or management.",
+                answer="I can only provide information about Spinal Muscular Atrophy (SMA). Please ask a question related to SMA, its symptoms, treatments, or management. / يمكنني فقط تقديم معلومات حول ضمور العضلات الشوكي (SMA). يرجى طرح سؤال متعلق بـ SMA أو أعراضه أو علاجاته أو إدارته.",
                 confidence=0.9
             )
         
@@ -152,9 +152,14 @@ def _is_sma_related_response(answer: str) -> bool:
         True if appears SMA-related, False otherwise
     """
     sma_keywords = [
+        # English keywords
         'sma', 'spinal muscular atrophy', 'motor neuron', 'smn1', 'smn2',
         'muscle weakness', 'muscle atrophy', 'spinraza', 'zolgensma',
-        'risdiplam', 'evrysdi', 'motor unit', 'anterior horn'
+        'risdiplam', 'evrysdi', 'motor unit', 'anterior horn',
+        # Arabic keywords
+        'ضمور العضلات الشوكي', 'الضمور العضلي الشوكي', 'العصبون الحركي', 
+        'ضعف العضلات', 'ضمور العضلات', 'سبينرازا', 'زولجينسما',
+        'العضلات', 'الأعصاب', 'الحبل الشوكي', 'القرن الأمامي'
     ]
     
     answer_lower = answer.lower()
