@@ -37,7 +37,7 @@ jobs:
           docker rm sma-assistant-backend || true
           docker run -d \
             --name sma-assistant-backend \
-            --env-file ~/dev/backsma-assistant-backend/.env \
+            --env-file ~/dev/sma-assistant-backend/.env \
             -p 8000:8000 \
             haithemsboui/sma-assistant-backend:latest
 
