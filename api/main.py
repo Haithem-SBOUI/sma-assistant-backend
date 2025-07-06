@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from chat_schema import ChatRequest, ChatResponse, HealthResponse
-from chat_workflow import get_chat_workflow
+from simple_workflow import get_chat_workflow
 from utils.llm import create_fallback_response
 from dotenv import load_dotenv
 
