@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from chat_schema import ChatRequest, ChatResponse, HealthResponse
-from simple_workflow import get_chat_workflow
+from chat_workflow import get_chat_workflow
 from utils.llm import create_fallback_response
 from dotenv import load_dotenv
 
@@ -64,23 +64,30 @@ async def health_check():
 
 
 @app.post("/api/chat", response_model=ChatResponse)
-async def chat_endpoint(request: ChatRequest):
+async def chat_endpoint(request: ChatRequest, http_request: Request):
     """
     Main chat endpoint for SMA-related questions
     
     Args:
         request: ChatRequest containing user message
+        http_request: FastAPI Request object for client info
         
     Returns:
         ChatResponse with AI answer and confidence score
     """
     try:
+        # Extract client information
+        client_ip = http_request.client.host if http_request.client else "unknown"
+        server_name = http_request.headers.get("host", "unknown")
+        user_agent = http_request.headers.get("user-agent", "unknown")
+        
+        logger.info(f"Chat request from client IP: {client_ip}, server: {server_name}, user-agent: {user_agent[:50]}...")
         logger.info(f"Received chat request: {request.message[:100]}...")
         
         # Process the request through the workflow
         response = await chat_workflow.process_chat(request)
         
-        logger.info(f"Generated response with confidence: {response.confidence}")
+        logger.info(f"Generated response with confidence: {response.confidence} for client: {client_ip}")
         return response
         
     except HTTPException:
