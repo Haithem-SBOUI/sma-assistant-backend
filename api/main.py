@@ -30,13 +30,13 @@ app = FastAPI(
 
 # CORS configuration
 cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:4200").split(",")
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["GET", "POST", "OPTIONS"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 # Get workflow instance
 chat_workflow = get_chat_workflow()
